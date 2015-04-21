@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ContinuousIntegration" basedir="." default="main">
+    <property name="src.dir"     value="src"/>
+	<property name="test.dir"     value="test"/>
+    <property name="build.dir"   value="build"/>
+	<property name ="reports.dir" value="reports"/>
+	<property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir"     value="${build.dir}/jar"/>
+      <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+		<javac srcdir="${test.dir}" destdir="${classes.dir}" classpath = "C:\Program Files\Java\jdk1.8.0_31\lib\junit-4.11.jar"/>
+    </target>
+	
+	<target name="runTests" depends = "compile">
+		<junit printsummary = "yes">
+			<test name = "CI.MathFunctionsTest" todir = "${reports.dir}"/>
+			<test name = "CI.StringFunctionsTest" todir = "${reports.dir}"/>
+			<classpath>
+				<pathelement location = "C:\Program Files\Java\jdk1.8.0_31\lib\junit-4.11.jar"/>
+				<pathelement location = "${classes.dir}"/>
+			</classpath>
+			<formatter type="xml" />
+		</junit>
+    
+    </target>
+
+    <target name="jar" depends="runTests">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}" excludes = "**/*Test.class">
+            <manifest>
+                <attribute name="Main-Class" value="CI.Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    
+    <target name="clean-build" depends="clean,jar"/>
+
+    <target name="main" depends="clean,jar"/>
+
+</project>
