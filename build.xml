@@ -16,6 +16,7 @@
     </target>
 	
 	<target name="runTests" depends = "compile">
+		<mkdir dir="${reports.dir}"/>
 		<junit printsummary = "yes">
 			<test name = "CI.MathFunctionsTest" todir = "${reports.dir}"/>
 			<test name = "CI.StringFunctionsTest" todir = "${reports.dir}"/>
