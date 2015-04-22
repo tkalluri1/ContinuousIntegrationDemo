@@ -16,14 +16,14 @@
     </target>
 	
 	<target name="runTests" depends = "compile">
-		<junit printsummary = "yes">
+		<junit>
 			<test name = "CI.MathFunctionsTest" todir = "${reports.dir}"/>
 			<test name = "CI.StringFunctionsTest" todir = "${reports.dir}"/>
 			<classpath>
 				<pathelement location = "C:\Program Files\Java\jdk1.8.0_31\lib\junit-4.11.jar"/>
 				<pathelement location = "${classes.dir}"/>
 			</classpath>
-			<formatter type="xml" />
+			<formatter type = "xml" />
 		</junit>
     
     </target>
