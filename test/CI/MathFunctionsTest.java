@@ -46,7 +46,7 @@ public class MathFunctionsTest {
         double number1 = 9;
         double number2 = 2;
         MathFunctions instance = new MathFunctions();
-        double expResult =11;
+        double expResult =12;
         double result = instance.add(number1, number2);
         assertEquals(expResult, result, 0.0);
        
