@@ -131,7 +131,7 @@ public class MathFunctionsTest {
         System.out.println("log");
         double number1 = 10;
         MathFunctions instance = new MathFunctions();
-        double expResult = 1;
+        double expResult =2.302585092994046;
         double result = instance.log(number1);
         assertEquals(expResult, result, 0.0);
     }
