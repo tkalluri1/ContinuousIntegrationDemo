@@ -50,7 +50,7 @@ public class MathFunctions {
     }
 
     double log(double number1) {
-        result = Math.log10(number1);
+        result = Math.log(number1);
         return result;
     }
 
