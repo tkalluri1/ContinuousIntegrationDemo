@@ -16,7 +16,7 @@ public class MathFunctions {
     double result;
 
     double add(double number1, double number2) {
-        result = number1 + number2;
+        result = number1 + number2 + 0;
         return result;
     }
 
